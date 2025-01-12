@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Product } from "../types";
 import { formatCurrency } from "../utils";
-// import { formatCurrency } from "../utils";
 
 type ProductDetailsProps = {
   product: Product;
@@ -27,7 +26,13 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           </Link>
 
           <button
-            onClick={() => navigate(`/productos/${product.id}/editar`)}
+            onClick={() =>
+              navigate(`/productos/${product.id}/editar`, {
+                state: {
+                  product,
+                },
+              })
+            }
             className="bg-indigo-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center"
           >
             Editar Navigate
